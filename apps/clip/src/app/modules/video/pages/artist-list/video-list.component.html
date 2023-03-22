@@ -1,0 +1,17 @@
+<div class="flex">
+  <div class="w-2">
+    <pushit-video-player [currentVideo]="currentVideo"></pushit-video-player>
+  </div>
+  <div class="w-1  h-screen">
+    <div class="flex">
+    <ng-container *ngFor="let item of videos; let i=index">
+      <div class="w-05" (click)="currentVideo=item">
+        <video width="100%" height="100%" [poster]="item?.thumbnails" class="w-full h-full rounded-md" style="object-fit: fill;">
+          <source src=
+          "https://media.geeksforgeeks.org/wp-content/uploads/20200409094356/Placement100-_-GeeksforGeeks2.mp4"
+                          type="video/mp4"></video>
+      </div>
+    </ng-container>
+  </div>
+  </div>
+</div>

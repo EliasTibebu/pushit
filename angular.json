@@ -5,6 +5,7 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "clip": "apps/clip",
-    "clip-e2e": "apps/clip-e2e"
+    "clip-e2e": "apps/clip-e2e",
+    "libs-ui-video-player": "libs/libs/ui/video-player"
   }
 }

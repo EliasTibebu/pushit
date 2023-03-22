@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pushit/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@pushit/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@pushit/libs/ui/video-player": ["libs/libs/ui/video-player/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
