@@ -1,0 +1,36 @@
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: stretch;
+}
+.w-2{
+width:66.6%
+}
+.w-1{
+width: 33.3%;
+}
+.w-05{
+  width: 50%;
+}
+.h-screen{
+  height: 90vh;
+  overflow-y: auto;
+}
+.video-item{
+  width: 45%;
+  margin: 5px;
+  transition: all 1s;
+  position: relative;
+  .video-description {
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    top: 25%;
+    left: 25%;
+    bottom: 25%;
+    align-items: center;
+    text-align: center;
+  }
+}
+

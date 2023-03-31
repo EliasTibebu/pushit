@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  clipsUrl:'http://localhost:3333/api/clips'
 };
 
 /*

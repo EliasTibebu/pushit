@@ -1,19 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Video } from '@pushit/api-interfaces';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { Component, Input} from '@angular/core';
+import {Video} from '@pushit/api-interfaces';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'pushit-video-player',
   templateUrl: './video-player.component.html',
-  styleUrls: ['./video-player.component.css'],
+  styleUrls: ['./video-player.component.css']
 })
-export class VideoPlayerComponent implements OnInit {
-  @Input() currentVideo!:Video
-  vidLink!:SafeResourceUrl
+export class VideoPlayerComponent {
+  private _currentVideo!:Video;
+  @Input()
+  set currentVideo(selectedVideo:Video){
+    this._currentVideo=selectedVideo;
+    this.getSelectedVideoLink();
+  }
+  selectedVideoLink!:SafeResourceUrl
   constructor(private sanitizer: DomSanitizer){}
 
-  ngOnInit(): void {
-    const forIframe=this.currentVideo.link?.replace('watch','embed')
-     this.vidLink = this.sanitizer.bypassSecurityTrustResourceUrl(forIframe??'');
+  getSelectedVideoLink(){
+    const forIframe=this._currentVideo.clipURL?.replace('watch','embed')
+    this.selectedVideoLink = this.sanitizer.bypassSecurityTrustResourceUrl(forIframe??'');
   }
 }

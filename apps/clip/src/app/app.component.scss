@@ -1,0 +1,25 @@
+/* reseting styles*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* header section*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 15px;
+}
+main{
+  height: calc(100vh - 70px);
+  display: flex;
+  background-color: #f9f9f9;
+  overflow-y: hidden;
+}
+
+
+
+
+
