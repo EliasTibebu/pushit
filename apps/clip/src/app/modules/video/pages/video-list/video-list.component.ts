@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
+import { LoadingIndicatorService } from '@pushit/libs/ui/spinner';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from "@angular/core";
 import {Video} from "@pushit/api-interfaces";
 
 import {VideoService} from "../../services/video.service";
@@ -6,16 +7,20 @@ import {VideoService} from "../../services/video.service";
 @Component({
   selector: "pushit-video-list",
   templateUrl: "./video-list.component.html",
-  styleUrls: ["./video-list.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ["./video-list.component.scss"]
 })
 export class  VideoListComponent implements OnInit {
   videos:Video[]=[];
   currentVideo!:Video;
   totalRow!:number;
   currentPage=0;
-  pageLimit=6;
-  constructor(private videoService:VideoService) {
+  pageLimit=8;
+  loading=false
+  constructor(private videoService:VideoService,private readonly cd:ChangeDetectorRef,private readonly loadingIndicatorService:LoadingIndicatorService) {
+    loadingIndicatorService.onLoadingChanged.subscribe(
+      (isLoading) =>{
+         (this.loading = isLoading)}
+    );
   }
   ngOnInit(): void {
    this.fetchVideosFromApi();
@@ -25,8 +30,10 @@ export class  VideoListComponent implements OnInit {
       .subscribe((data:any)=>{
         this.videos.push(...data.clips);
         this.totalRow=data.totalrows;
+        this.currentVideo=this.videos[0]
+        this.cd.detectChanges()
+        this.cd.markForCheck()
       })
-    this.currentVideo=this.videos[0]
   }
   videoSelected(selectedVideo:Video){
     this.currentVideo=selectedVideo;

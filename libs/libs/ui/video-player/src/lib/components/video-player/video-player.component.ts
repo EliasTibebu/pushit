@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Video} from '@pushit/api-interfaces';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
@@ -7,18 +7,18 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.css']
 })
-export class VideoPlayerComponent {
-  private _currentVideo!:Video;
-  @Input()
-  set currentVideo(selectedVideo:Video){
-    this._currentVideo=selectedVideo;
-    this.getSelectedVideoLink();
-  }
+export class VideoPlayerComponent implements OnChanges{
+  @Input() currentVideo!:Video
   selectedVideoLink!:SafeResourceUrl
   constructor(private sanitizer: DomSanitizer){}
+  ngOnChanges(changes: SimpleChanges): void {
+   if(this.currentVideo){
+    this.getSelectedVideoLink(this.currentVideo)
+   }
+  }
 
-  getSelectedVideoLink(){
-    const forIframe=this._currentVideo.clipURL?.replace('watch','embed')
+  getSelectedVideoLink(currentVideo:Video){
+    const forIframe=this.currentVideo.clipURL?.replace('watch','embed')
     this.selectedVideoLink = this.sanitizer.bypassSecurityTrustResourceUrl(forIframe??'');
   }
 }

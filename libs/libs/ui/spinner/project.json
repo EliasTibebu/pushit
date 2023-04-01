@@ -1,15 +1,13 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/libs/ui/video-player/src",
+  "sourceRoot": "libs/libs/ui/spinner/src",
   "prefix": "pushit",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/libs/ui/video-player"
-      ],
+      "outputs": ["coverage/libs/libs/ui/spinner"],
       "options": {
-        "jestConfig": "libs/libs/ui/video-player/jest.config.ts",
+        "jestConfig": "libs/libs/ui/spinner/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -17,8 +15,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/libs/ui/video-player/**/*.ts",
-          "libs/libs/ui/video-player/**/*.html"
+          "libs/libs/ui/spinner/**/*.ts",
+          "libs/libs/ui/spinner/**/*.html"
         ]
       }
     }

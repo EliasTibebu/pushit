@@ -19,6 +19,7 @@
       "@pushit/libs/ui/infinite-scroll": [
         "libs/libs/ui/infinite-scroll/src/index.ts"
       ],
+      "@pushit/libs/ui/spinner": ["libs/libs/ui/spinner/src/index.ts"],
       "@pushit/libs/ui/video-player": ["libs/libs/ui/video-player/src/index.ts"]
     }
   },

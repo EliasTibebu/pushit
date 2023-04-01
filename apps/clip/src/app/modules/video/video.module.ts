@@ -1,3 +1,4 @@
+import { LibsUiSpinnerModule } from '@pushit/libs/ui/spinner';
 import { LibsUiVideoPlayerModule } from '@pushit/libs/ui/video-player';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { HttpClientModule} from "@angular/common/http";
     VideoRoutingModule,
     LibsUiVideoPlayerModule,
     LibsUiInfiniteScrollModule,
+    LibsUiSpinnerModule
   ],
   providers:[VideoService]
 })

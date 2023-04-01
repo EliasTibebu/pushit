@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/clip",
         "index": "apps/clip/src/index.html",
@@ -13,8 +15,13 @@
         "polyfills": "apps/clip/src/polyfills.ts",
         "tsConfig": "apps/clip/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/clip/src/favicon.ico", "apps/clip/src/assets"],
-        "styles": ["apps/clip/src/styles.scss"],
+        "assets": [
+          "apps/clip/src/favicon.ico",
+          "apps/clip/src/assets"
+        ],
+        "styles": [
+          "apps/clip/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -74,12 +81,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/clip/**/*.ts", "apps/clip/**/*.html"]
+        "lintFilePatterns": [
+          "apps/clip/**/*.ts",
+          "apps/clip/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/clip"],
+      "outputs": [
+        "coverage/apps/clip"
+      ],
       "options": {
         "jestConfig": "apps/clip/jest.config.ts",
         "passWithNoTests": true
