@@ -1,4 +1,4 @@
-import {ArgumentsHost, Catch, ExceptionFilter} from "@nestjs/common";
+import {ArgumentsHost, Catch, ExceptionFilter, HttpStatus} from "@nestjs/common";
 
 @Catch()
 export class FallbackExceptionFilter implements ExceptionFilter{
@@ -10,7 +10,7 @@ export class FallbackExceptionFilter implements ExceptionFilter{
        request=ctx.getRequest();
 
 
-    return response.status(500).json({
+    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: 500,
       path: request.url,
       errorMessage: exception.message ? exception.message :

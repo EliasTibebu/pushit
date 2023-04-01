@@ -1,8 +1,9 @@
-import {Controller, Get, Query} from "@nestjs/common";
+import {CacheInterceptor, Controller, Get, Query, UseInterceptors} from "@nestjs/common";
 import {ClipsServices} from "./clips.services";
 import {ClipsQueryParamDto} from "../../common/dtos/ClipsQueryParamDto";
 
 @Controller('clips')
+@UseInterceptors(CacheInterceptor)
  export class ClipsController{
  constructor(private clipsService:ClipsServices) {}
   @Get()

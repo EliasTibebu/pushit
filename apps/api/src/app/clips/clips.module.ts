@@ -1,10 +1,10 @@
-import {Module} from "@nestjs/common";
+import {CacheModule, Module} from "@nestjs/common";
 import {ClipsController} from "./clips.controller";
 import {ClipsServices} from "./clips.services";
 import {HttpModule} from "@nestjs/axios";
 
 @Module({
-  imports:[HttpModule],
+  imports:[HttpModule,CacheModule.register()],
   controllers:[ClipsController],
   providers:[ClipsServices]
 })
